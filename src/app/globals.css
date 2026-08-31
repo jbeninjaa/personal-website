@@ -1,10 +1,29 @@
 @import "tailwindcss";
 
+:root {
+  --paper: #f4f0e8;
+  --ink: #171714;
+  --muted: #666359;
+  --rule: #b9b3a8;
+  --focus: #0b6e69;
+  --texture: rgb(23 23 20 / 0.025);
+}
+
+html[data-theme="dark"] {
+  --paper: #1d211b;
+  --ink: #f0efdf;
+  --muted: #b8b8a9;
+  --rule: #62665b;
+  --focus: #e0cb62;
+  --texture: rgb(240 239 223 / 0.04);
+  color-scheme: dark;
+}
+
 @theme inline {
-  --color-paper: #f4f0e8;
-  --color-ink: #171714;
-  --color-muted: #666359;
-  --color-rule: #b9b3a8;
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
   --font-display: var(--font-display);
   --font-mono: var(--font-mono);
   --spacing-gutter: clamp(1.5rem, 5vw, 5rem);
@@ -21,10 +40,10 @@ html {
 
 body {
   margin: 0;
-  background-color: #f4f0e8;
-  background-image: linear-gradient(90deg, rgb(23 23 20 / 0.025) 1px, transparent 1px);
+  background-color: var(--paper);
+  background-image: linear-gradient(90deg, var(--texture) 1px, transparent 1px);
   background-size: 5px 5px;
-  color: #171714;
+  color: var(--ink);
   font-family: Georgia, "Times New Roman", serif;
 }
 
@@ -48,11 +67,49 @@ p {
   align-items: end;
   min-height: 100svh;
   padding-block: clamp(2rem, 5vw, 4rem);
-  border-bottom: 1px solid #b9b3a8;
+  border-bottom: 1px solid var(--rule);
 }
 
 .hero-content {
   grid-column: 2;
+}
+
+.theme-toggle-wrap {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+}
+
+.theme-toggle {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  cursor: pointer;
+  place-items: center;
+}
+
+.theme-toggle svg {
+  grid-area: 1 / 1;
+}
+
+html[data-theme="light"] .theme-toggle svg:last-child,
+html[data-theme="dark"] .theme-toggle svg:first-child {
+  opacity: 0;
+}
+
+html[data-theme="light"] .theme-toggle svg:first-child,
+html[data-theme="dark"] .theme-toggle svg:last-child {
+  opacity: 1;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
 }
 
 .eyebrow,
@@ -68,17 +125,17 @@ p {
 
 .eyebrow {
   grid-column: 1;
-  color: #666359;
+  color: var(--muted);
 }
 
 .role {
   margin-bottom: clamp(1.25rem, 3vw, 2.5rem);
-  color: #666359;
+  color: var(--muted);
 }
 
 .role span {
   padding-inline: 0.35rem;
-  color: #171714;
+  color: var(--ink);
 }
 
 h1,
@@ -104,7 +161,7 @@ h1 {
 .hero-note {
   grid-column: 3;
   align-self: end;
-  color: #666359;
+  color: var(--muted);
   text-align: right;
 }
 
@@ -122,7 +179,7 @@ h1 {
   grid-template-columns: minmax(0, 1.1fr) minmax(14rem, 0.9fr);
   gap: clamp(2rem, 8vw, 8rem);
   padding-top: clamp(3rem, 8vw, 7rem);
-  border-top: 1px solid #b9b3a8;
+  border-top: 1px solid var(--rule);
 }
 
 h2 {
@@ -151,8 +208,14 @@ h2 {
   .hero-content,
   .eyebrow,
   .hero-note,
+  .theme-toggle-wrap,
   .about-content {
     grid-column: 1;
+  }
+
+  .theme-toggle-wrap {
+    grid-row: auto;
+    justify-self: start;
   }
 
   .hero-note {

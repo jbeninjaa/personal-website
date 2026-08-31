@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 
 const newsreader = localFont({
@@ -24,7 +25,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${newsreader.variable} ${ibmPlexMono.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`(() => {
+  const savedTheme = localStorage.getItem("theme");
+  const theme = savedTheme === "light" || savedTheme === "dark"
+    ? savedTheme
+    : window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  document.documentElement.dataset.theme = theme;
+})();`}
+        </Script>
+      </head>
       <body>{children}</body>
     </html>
   );

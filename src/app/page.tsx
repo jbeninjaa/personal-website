@@ -1,4 +1,5 @@
 import { profile } from "@/content/profile";
+import { ThemeToggle } from "./theme-toggle";
 
 export default function Home() {
   return (
@@ -6,6 +7,9 @@ export default function Home() {
       <section className="hero" aria-labelledby="page-title">
         <div className="page-grid">
           <p className="eyebrow">01 / Profile</p>
+          <div className="theme-toggle-wrap">
+            <ThemeToggle />
+          </div>
           <div className="hero-content">
             <p className="role">
               {profile.currentRole.title} <span aria-hidden="true">/</span>{" "}
