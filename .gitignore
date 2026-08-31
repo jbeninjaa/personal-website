@@ -12,6 +12,9 @@ out/
 # Local issue tracker
 .scratch/
 
+# Local session notes
+docs/sessions/
+
 # OS and editor files
 .DS_Store
 .vscode/
