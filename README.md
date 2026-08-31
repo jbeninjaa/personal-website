@@ -6,12 +6,14 @@ copy in one typed source of truth.
 
 ## Current Scope
 
-The implemented page contains Hero and About sections. Its content introduces Jayven,
-his current role, and his professional focus without including an Optum work description.
+The implemented page flows through Hero, About, Experience, Skills, Contact, and Footer
+sections. It introduces Jayven, his current role, public technologies, and direct email,
+LinkedIn, and GitHub links from one typed content source.
 
-Theme behavior, Experience, Skills, Contact, Footer, and discovery assets are planned
-but not yet implemented. The local issue tracker in `.scratch/personal-website/issues/`
-records that roadmap.
+An experience entry without a description renders without empty placeholder content.
+The page includes a persistent theme toggle and keyboard-visible focus styles for
+interactive controls and links. The local issue tracker in `.scratch/personal-website/issues/`
+records the remaining roadmap.
 
 ## Quick Start
 
@@ -28,10 +30,12 @@ Open http://localhost:3000.
 npm run test:content
 npm run build
 npm run test:build
+npm run test:theme
 npm run lint
 ```
 
 `npm run build` writes a portable static site to `out/`.
+`npm run test:theme` runs Playwright checks and starts a local development server automatically.
 
 ## Documentation
 
