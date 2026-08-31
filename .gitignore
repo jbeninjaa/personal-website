@@ -30,6 +30,9 @@ docs/sessions/
 !.yarn/versions
 # testing
 /coverage
+/playwright-report/
+/test-results/
+/blob-report/
 # next.js
 /.next/
 /out/

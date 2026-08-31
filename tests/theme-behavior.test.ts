@@ -57,6 +57,26 @@ test("theme control is keyboard reachable with a visible focus state", async ({ 
   await expect(toggle).toHaveCSS("outline-width", "2px");
 });
 
+test("professional contact links are keyboard reachable with visible focus", async ({ page }) => {
+  await page.goto("/");
+
+  const email = page.getByRole("link", { name: "reachjayven@gmail.com" });
+  const linkedIn = page.getByRole("link", { name: "LinkedIn" });
+  const gitHub = page.getByRole("link", { name: "GitHub" });
+
+  await page.keyboard.press("Tab");
+  await page.keyboard.press("Tab");
+  await expect(email).toBeFocused();
+  await expect(email).toHaveCSS("outline-style", "solid");
+  await expect(email).toHaveCSS("outline-width", "2px");
+
+  await page.keyboard.press("Tab");
+  await expect(linkedIn).toBeFocused();
+
+  await page.keyboard.press("Tab");
+  await expect(gitHub).toBeFocused();
+});
+
 test("reduced-motion visitors receive no theme transition", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");

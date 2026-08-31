@@ -169,6 +169,21 @@ h1 {
   padding-block: clamp(5rem, 13vw, 11rem);
 }
 
+.experience {
+  padding-block: clamp(5rem, 13vw, 11rem);
+  border-top: 1px solid var(--rule);
+}
+
+.skills {
+  padding-block: clamp(5rem, 13vw, 11rem);
+  border-top: 1px solid var(--rule);
+}
+
+.contact {
+  padding-block: clamp(5rem, 13vw, 11rem);
+  border-top: 1px solid var(--rule);
+}
+
 .section-grid {
   align-items: start;
 }
@@ -194,6 +209,133 @@ h2 {
   line-height: 1.5;
 }
 
+.experience-content {
+  grid-column: 2 / 4;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(14rem, 0.9fr);
+  gap: clamp(2rem, 8vw, 8rem);
+}
+
+.experience-entry {
+  padding-top: 0.35rem;
+}
+
+.experience-dates,
+.experience-organization {
+  color: var(--muted);
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-size: 0.68rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.experience-entry h3 {
+  margin-top: 1rem;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.6rem, 2.8vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.experience-organization {
+  margin-top: 0.7rem;
+}
+
+.experience-description {
+  max-width: 34rem;
+  margin-top: 1.5rem;
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  line-height: 1.5;
+}
+
+.skills-content {
+  grid-column: 2 / 4;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(14rem, 0.9fr);
+  gap: clamp(2rem, 8vw, 8rem);
+}
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.skills-list li {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.skills-list li:nth-child(odd) {
+  padding-right: 1rem;
+}
+
+.skills-list li:nth-child(even) {
+  padding-left: 1rem;
+  border-left: 1px solid var(--rule);
+}
+
+.contact-content {
+  grid-column: 2 / 4;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(14rem, 0.9fr);
+  gap: clamp(2rem, 8vw, 8rem);
+}
+
+.contact-links {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+  padding-top: 0.35rem;
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  font-style: normal;
+  line-height: 1.35;
+}
+
+.contact-links a {
+  color: var(--ink);
+  text-decoration-color: var(--rule);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+}
+
+.contact-links a:hover {
+  color: var(--focus);
+  text-decoration-color: currentcolor;
+}
+
+.site-footer {
+  padding-block: 2rem;
+  border-top: 1px solid var(--rule);
+}
+
+.footer-name,
+.footer-role {
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-size: 0.68rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.footer-name {
+  grid-column: 2;
+}
+
+.footer-role {
+  grid-column: 3;
+  color: var(--muted);
+  text-align: right;
+}
+
 @media (max-width: 700px) {
   .page-grid {
     grid-template-columns: 1fr;
@@ -209,7 +351,12 @@ h2 {
   .eyebrow,
   .hero-note,
   .theme-toggle-wrap,
-  .about-content {
+  .about-content,
+  .experience-content,
+  .skills-content,
+  .contact-content,
+  .footer-name,
+  .footer-role {
     grid-column: 1;
   }
 
@@ -227,6 +374,25 @@ h2 {
     grid-template-columns: 1fr;
     gap: 2rem;
     padding-top: 2rem;
+  }
+
+  .experience-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .skills-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-role {
+    text-align: left;
   }
 }
 

@@ -4,7 +4,6 @@
 
 This repository hosts Jayven Lupera's professional website. It is a content-light,
 single-route site designed to be fast, maintainable, and suitable for a public profile.
-It must not publish confidential Optum information.
 
 ## Runtime Architecture
 
@@ -36,9 +35,7 @@ files in `out/` for deployment on Cloudflare Pages or another static host.
 ## Content and Confidentiality
 
 All public biographical data belongs in `src/content/profile.ts`. The `currentRole`
-description is optional by design. It must remain absent until Jayven personally provides
-approved Optum wording; do not insert generated filler, internal names, client details,
-member data, metrics, or work-product details.
+description is optional by design.
 
 When adding copy:
 
